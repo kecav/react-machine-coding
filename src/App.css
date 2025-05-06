@@ -1,0 +1,92 @@
+#root,
+.root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+}
+
+section {
+  position: relative;
+  width: 100%;
+  height: 90%;
+}
+
+.circle {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background-color: #f00;
+  width: 5rem;
+  /* height: 2rem; */
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}
+
+.cell {
+  border: 1px solid #fff;
+  padding: 2rem;
+  /* aspect-ratio: 1/1; */
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.col {
+  display: flex;
+  flex-direction: row;
+}
+
+.color {
+  background-color: #f00;
+}
+
+.all-projects {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: min(100%, 25rem);
+}
+
+.project-btn {
+  display: flex;
+  padding: 0.75rem 1rem;
+  border-radius: 2rem;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  column-gap: 1rem;
+  /* border: 1px solid #dedede; */
+  margin: 0.25rem;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.project-btn:hover {
+  background-color: rgb(0, 0, 255);
+}
+
+.back-btn {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
+button {
+  border: none;
+  outline: none;
+  background-color: #363636;
+}
