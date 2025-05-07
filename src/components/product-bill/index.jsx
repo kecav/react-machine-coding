@@ -157,9 +157,9 @@ const ProductBill = () => {
   }, [search]);
 
   useEffect(() => {
-    // getProductFetch();
+    getProductFetch();
     // getProductAxios();
-    setProducts(dummy);
+    // setProducts(dummy);
   }, []);
 
   return (
