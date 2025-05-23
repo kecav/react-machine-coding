@@ -18,6 +18,7 @@ const PROJECTS = [
   { title: "AutoComplete", loader: () => import("./components/autocomplete") },
   { title: "TicTacToe", loader: () => import("./components/tic-tac-toe") },
   { title: "Chips", loader: () => import("./components/chips") },
+  { title: "Countdown", loader: () => import("./components/countdown") },
 ];
 
 const AllProjects = ({ setShow }) => {
