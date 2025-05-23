@@ -4,17 +4,28 @@ import "./style.css";
 let timer = null;
 const Countdown = () => {
   const [state, setState] = useState(null);
-  const [hours, setHours] = useState(0);
-  const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
   const [buttonState, setButtonState] = useState("START");
+
+  const getTimeFormat = (secs) => {
+    const hrs = parseInt(secs / 3600);
+    const mins = parseInt(secs / 60) % 60;
+
+    return [hrs, mins, secs % 60];
+  };
 
   const timeChangeHandler = (e, multiple) => {
     const value = e.target.value;
     if (isNaN(value)) return;
 
-    const multi = seconds / multiple;
-    setSeconds(multi);
+    const prevTime = getTimeFormat(seconds);
+    console.log(prevTime);
+    if (multiple === 3600) prevTime[0] = parseInt(value);
+    else if (multiple === 60) prevTime[1] = parseInt(value);
+    else prevTime[2] = parseInt(value);
+    console.log(prevTime);
+
+    setSeconds(prevTime[0] * 3600 + prevTime[1] * 60 + prevTime[2]);
   };
 
   const resetHandler = () => {
@@ -38,15 +49,17 @@ const Countdown = () => {
 
   useEffect(() => {
     if (state === "RUNNING")
-      return (timer = setInterval(() => {
-        console.log("running", seconds);
+      timer = setTimeout(() => {
         if (seconds == 0) {
-          return clearInterval(timer);
+            resetHandler();
+            return clearTimeout(timer);
         }
         setSeconds(seconds - 1);
-      }, 1000));
-    clearInterval(timer);
-  }, [state]);
+      }, 1000);
+    else clearTimeout(timer);
+
+    return () => clearTimeout(timer);
+  }, [state, seconds]);
 
   return (
     <div className="countdown">
@@ -59,8 +72,13 @@ const Countdown = () => {
             type="number"
             name=""
             id=""
-            value={hours}
+            value={parseInt(seconds / 3600)
+              .toString()
+              .padStart(2, "0")}
             onChange={(e) => timeChangeHandler(e, 3600)}
+            min={0}
+            step={1}
+            max={100}
           />
         </div>
         <div className="time-section">
@@ -70,19 +88,25 @@ const Countdown = () => {
             type="number"
             name=""
             id=""
-            value={minutes}
+            value={(parseInt(seconds / 60) % 60).toString().padStart(2, "0")}
             onChange={(e) => timeChangeHandler(e, 60)}
+            min={0}
+            step={1}
+            max={60}
           />
         </div>
         <div className="time-section">
-          <p>Seocnds</p>
+          <p>Seconds</p>
           <input
             placeholder="00"
             type="number"
             name=""
             id=""
-            value={seconds % 60}
+            value={(seconds % 60).toString().padStart(2, "0")}
             onChange={(e) => timeChangeHandler(e, 1)}
+            min={0}
+            step={1}
+            max={60}
           />
         </div>
       </div>
