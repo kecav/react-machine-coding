@@ -16,6 +16,8 @@ const Countdown = () => {
 
   const timeChangeHandler = (e, multiple) => {
     const value = e.target.value;
+
+    // if(!(/^[1-9]\d*$/).test(value)) return;
     if (isNaN(value)) return;
 
     const prevTime = getTimeFormat(seconds);
