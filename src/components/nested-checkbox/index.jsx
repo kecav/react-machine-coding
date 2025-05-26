@@ -9,10 +9,32 @@ const Node = ({
   children,
   checkedNodes,
   setCheckedNodes,
+  data,
 }) => {
+  // on clicking checkbox, use recursion inside it
   const onCheck = (e) => {
     setCheckedNodes((prev) => {
-      return { ...prev, [id]: e.target.checked };
+      const newState = { ...prev, [id]: e.target.checked };
+
+      // update all children
+      const updateChildren = (node) => {
+        newState[node.id] = e.target.checked;
+
+        node.children?.forEach((child) => {
+          updateChildren(child);
+        });
+      };
+
+      // update the parents
+      const updateParents = (node) => {
+        return (newState[node.id] = node.children?.every((child) =>
+          updateParents(child)
+        ));
+      };
+
+      updateChildren({ id, children });
+      data.forEach((obj) => updateParents(obj));
+      return newState;
     });
   };
 
@@ -40,6 +62,7 @@ const Node = ({
             children={child.children}
             checkedNodes={checkedNodes}
             setCheckedNodes={setCheckedNodes}
+            data={data}
           />
         );
       })}
@@ -55,7 +78,6 @@ const NestedCheckBox = () => {
     setData(json);
   }, []);
 
-  console.log(checkedNodes);
   return (
     <div className="nested-checkbox">
       <Node
@@ -63,6 +85,7 @@ const NestedCheckBox = () => {
         children={data}
         checkedNodes={checkedNodes}
         setCheckedNodes={setCheckedNodes}
+        data={data}
       />
     </div>
   );
