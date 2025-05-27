@@ -20,16 +20,15 @@ const Node = ({
       const updateChildren = (node) => {
         newState[node.id] = e.target.checked;
 
-        node.children?.forEach((child) => {
-          updateChildren(child);
-        });
+        node.children?.forEach(updateChildren);
       };
 
       // update the parents
       const updateParents = (node) => {
-        return (newState[node.id] = node.children?.every((child) =>
-          updateParents(child)
-        ));
+        // return (newState[node.id] = node.children?.every((child) => {
+        //   updateParents(child);
+        //   return newState[child.id];
+        // }));
       };
 
       updateChildren({ id, children });
@@ -75,9 +74,22 @@ const NestedCheckBox = () => {
   const [checkedNodes, setCheckedNodes] = useState({});
 
   useEffect(() => {
+    if(data.length == 0) return;
+    const buildCheckedNodes = (obj, cnState) => {
+      cnState[obj.id] = false;
+      obj.children?.forEach((child) => buildCheckedNodes(child, cnState));
+    };
+
+    const newCheckedNodes = {};
+    data?.forEach((node) => buildCheckedNodes(node, newCheckedNodes));
+    setCheckedNodes(newCheckedNodes);
+  }, [data]);
+
+  useEffect(() => {
     setData(json);
   }, []);
 
+  console.log(checkedNodes);
   return (
     <div className="nested-checkbox">
       <Node
