@@ -1,0 +1,1 @@
+.countdown{display:flex;flex-direction:column;justify-content:center;align-items:center;row-gap:1rem}.times{display:flex;flex-direction:row;justify-content:space-around;align-items:center}.times-section{display:flex;flex-direction:column}.time-section input{border:none;font-size:2rem;outline:none;width:5rem}
