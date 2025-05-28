@@ -1,12 +1,14 @@
 # React + Vite
 
-- InteractiveGrid
-- ProductBill
-- TabForm
-- ProgressBar
-- OTPInput
+- Interactive Grid
+- Product Bill
+- Tab Form
+- Progress Bar
+- OTP Input
 - Pagination
-- PaginatedProducts
-- AutoComplete
-- TicTacToe
+- Paginated Products
+- Auto Complete
+- Tic Tac Toe
 - Chips
+- Countdown
+- Nested Checkboxes
