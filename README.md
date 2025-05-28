@@ -1,4 +1,4 @@
-# React + Vite
+# Topics Covered
 
 - Interactive Grid
 - Product Bill
