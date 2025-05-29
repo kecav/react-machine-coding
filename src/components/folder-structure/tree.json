@@ -1,0 +1,53 @@
+[
+  {
+    "id": "1",
+    "title": "Folder1",
+    "isFile": false,
+    "children": [
+      {
+        "id": "1-1",
+        "title": "Folder11",
+        "isFile": false,
+        "children": [
+          { "id": "1-1-1", "title": "File111.jsx", "isFile": true },
+          { "id": "1-1-2", "title": "File112.jsx", "isFile": true }
+        ]
+      },
+      {
+        "id": "1-2",
+        "title": "Folder12",
+        "isFile": false,
+        "children": [
+          {
+            "id": "1-2-1",
+            "title": "Folder121",
+            "isFile": false,
+            "children": [
+              { "id": "1-2-1-1", "title": "File1211.jsx", "isFile": true },
+              { "id": "1-2-1-2", "title": "File1212.jsx", "isFile": true },
+              { "id": "1-2-1-3", "title": "File1213.jsx", "isFile": true },
+              { "id": "1-2-1-4", "title": "File1214.jsx", "isFile": true },
+              { "id": "1-2-1-5", "title": "File1215.jsx", "isFile": true }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "title": "Folder2",
+    "isFile": false,
+    "children": [
+      { "id": "2-1", "title": "File21", "isFile": true }
+    ]
+  },
+  {
+    "id": "3",
+    "title": "Folder3",
+    "isFile": false,
+    "children": [
+      { "id": "3-1", "title": "File31", "isFile": true }
+    ]
+  }
+]

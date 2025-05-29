@@ -15,6 +15,7 @@ const PROJECTS = [
   { title: "Chips", loader: () => import("./components/chips") },
   { title: "Countdown", loader: () => import("./components/countdown") },
   { title: "NestedCheckbox", loader: () => import("./components/nested-checkbox") },
+  { title: "FolderStructure", loader: () => import("./components/folder-structure") },
 ];
 
 const AllProjects = () => {

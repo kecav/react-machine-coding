@@ -25,9 +25,9 @@ const Node = ({
 
       // update the parents
       const updateParents = (node) => {
-        // if (newState[node.id]) return newState[node.id];
-        if (!node.children) return newState[node.id] || false;
-        const allChecked = node.children?.every(updateParents);
+        if (!node.children) return newState[node.id];
+        const allChecked = node.children.every(updateParents);
+        console.log(node.id, allChecked);
         newState[node.id] = allChecked;
         return allChecked;
       };
@@ -46,7 +46,7 @@ const Node = ({
             type="checkbox"
             name=""
             id=""
-            checked={checkedNodes[id]}
+            checked={checkedNodes[id] || false}
             onChange={onCheck}
           />
           <label htmlFor="checkbox">{title}</label>
@@ -90,7 +90,7 @@ const NestedCheckBox = () => {
     setData(json);
   }, []);
 
-  console.log(checkedNodes);
+  console.log(data, checkedNodes);
   return (
     <div className="nested-checkbox">
       <Node
