@@ -16,6 +16,7 @@ const PROJECTS = [
   { title: "Countdown", loader: () => import("./components/countdown") },
   { title: "NestedCheckbox", loader: () => import("./components/nested-checkbox") },
   { title: "FolderStructure", loader: () => import("./components/folder-structure") },
+  { title: "useBooleanHook", loader: () => import("./components/useBoolean") },
 ];
 
 const AllProjects = () => {
