@@ -13,7 +13,8 @@
 .container input{
     outline: none;
     padding: 0.5rem;
-    cursor: pointer;
+    width: 100%;
+    /* cursor: pointer; */
 }
 
 .container input,
@@ -28,4 +29,8 @@
 
 .word {
   padding: 0.5rem;
+}
+
+.highlight {
+  background-color: rgb(0, 0, 55);
 }
