@@ -58,7 +58,7 @@ section {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-starts;
   width: min(100%, 25rem);
 }
 
