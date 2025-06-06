@@ -51,7 +51,7 @@ const AllComponents = () => {
   return (
     <div className="all-projects">
       {sortedComponents.map(({ title }, i) => (
-        <Link to={`/components/${i}`} key={title}>
+        <Link to={`/components/${COMPONENTS.findIndex(c => c.title === title)}`} key={title}>
           <button className="project-btn">{title}</button>
         </Link>
       ))}
