@@ -14,6 +14,7 @@
 - Countdown
 - Nested Checkboxes
 - Folder Structure
+- Toasts
 
 ## Hooks :
 - useBoolean

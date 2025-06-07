@@ -1,0 +1,32 @@
+.toast-component {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.toast-container {
+  width: 20rem;
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+}
+
+.toast {
+  width: 100%;
+  color: #fff;
+  padding: 0.25rem 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.cross-btn {
+  cursor: pointer;
+}

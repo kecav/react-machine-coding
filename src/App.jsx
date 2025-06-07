@@ -38,6 +38,10 @@ const COMPONENTS = [
     title: "FolderStructure",
     loader: () => import("./components/folder-structure"),
   },
+  {
+    title: "Toasts",
+    loader: () => import("./components/toasts"),
+  },
 ];
 
 const HOOKS = [
@@ -51,7 +55,10 @@ const AllComponents = () => {
   return (
     <div className="all-projects">
       {sortedComponents.map(({ title }, i) => (
-        <Link to={`/components/${COMPONENTS.findIndex(c => c.title === title)}`} key={title}>
+        <Link
+          to={`/components/${COMPONENTS.findIndex((c) => c.title === title)}`}
+          key={title}
+        >
           <button className="project-btn">{title}</button>
         </Link>
       ))}
